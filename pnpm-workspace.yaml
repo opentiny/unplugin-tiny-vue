@@ -1,0 +1,7 @@
+packages:
+  - example
+
+  # 统一版本，方便维护
+catalog:
+  'vite': '^6.0.0'
+  'typescript': '~5.3.3'
