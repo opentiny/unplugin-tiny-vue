@@ -21,21 +21,20 @@ Vite
 
 ```js
 // vite.config.js
+import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { TinyVueSingleResolver } from '@opentiny/unplugin-tiny-vue'
 
-module.exports = defineConfig({
-  configureWebpack: {
-    plugins: [
-      Components({
-        resolvers: [TinyVueSingleResolver]
-      }),
-      AutoImport({
-        resolvers: [TinyVueSingleResolver]
-      })
-    ]
-  }
+export default defineConfig({
+ plugins: [
+    Components({
+      resolvers: [TinyVueSingleResolver]
+    }),
+    AutoImport({
+      resolvers: [TinyVueSingleResolver]
+    })
+  ]
 })
 ```
 
@@ -43,22 +42,20 @@ Webpack
 
 ```js
 // webpack.config.js
-const Components = require('unplugin-vue-components/webpack').default
-const AutoImport = require('unplugin-auto-import/webpack').default
-const TinyVueSingleResolver = require('@opentiny/unplugin-tiny-vue').TinyVueSingleResolver
+const Components = require('unplugin-vue-components/webpack')
+const AutoImport = require('unplugin-auto-import/webpack')
+const { TinyVueSingleResolver } = require('@opentiny/unplugin-tiny-vue')
 
-module.exports = defineConfig({
-  configureWebpack: {
-    plugins: [
-      Components({
-        resolvers: [TinyVueSingleResolver]
-      }),
-      AutoImport({
-        resolvers: [TinyVueSingleResolver]
-      })
-    ]
-  }
-})
+module.exports = {
+  plugins: [
+    Components({
+      resolvers: [TinyVueSingleResolver]
+    }),
+    AutoImport({
+      resolvers: [TinyVueSingleResolver]
+    })
+  ]
+}
 ```
 
 #### 温馨提示
@@ -78,27 +75,26 @@ module.exports = defineConfig({
 
 ### 多组件按需引入(不推荐用法，从主入口引入无法treeShaking非js文件，比如：css、image文件等)
 
-例如：TinyVueResolver('TinyModal') => import { TinyModal } from '@opentiny/vue-modal'
+例如：TinyVueResolver('TinyModal') => import { TinyModal } from '@opentiny/vue'
 
 Vite
 
 ```js
 // vite.config.js
+import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { TinyVueResolver } from '@opentiny/unplugin-tiny-vue'
 
-module.exports = defineConfig({
-  configureWebpack: {
-    plugins: [
-      Components({
-        resolvers: [TinyVueResolver]
-      }),
-      AutoImport({
-        resolvers: [TinyVueResolver]
-      })
-    ]
-  }
+export default defineConfig({
+  plugins: [
+    Components({
+      resolvers: [TinyVueResolver]
+    }),
+    AutoImport({
+      resolvers: [TinyVueResolver]
+    })
+  ]
 })
 ```
 
@@ -106,20 +102,18 @@ Webpack
 
 ```js
 // webpack.config.js
-const Components = require('unplugin-vue-components/webpack').default
-const AutoImport = require('unplugin-auto-import/webpack').default
-const TinyVueResolver = require('@opentiny/unplugin-tiny-vue').TinyVueResolver
+const Components = require('unplugin-vue-components/webpack')
+const AutoImport = require('unplugin-auto-import/webpack')
+const { TinyVueResolver } = require('@opentiny/unplugin-tiny-vue')
 
-module.exports = defineConfig({
-  configureWebpack: {
-    plugins: [
-      Components({
-        resolvers: [TinyVueResolver]
-      }),
-      AutoImport({
-        resolvers: [TinyVueResolver]
-      })
-    ]
-  }
-})
-
+module.exports = {
+  plugins:[
+    Components ({
+      resolvers: [TinyVueResolver]
+    }),
+    AutoImport({
+      resolvers: [TinyVueResolver]
+    })
+  ]
+}
+```
