@@ -6,7 +6,7 @@
 // biome-ignore lint: disable
 export {}
 declare global {
-  const TinyLoading: (typeof import('@opentiny/vue'))['TinyLoading']
-  const TinyModal: (typeof import('@opentiny/vue'))['TinyModal']
-  const TinyNotify: (typeof import('@opentiny/vue'))['TinyNotify']
+  const TinyLoading: typeof import('@opentiny/vue-loading')['default']
+  const TinyModal: typeof import('@opentiny/vue-modal')['default']
+  const TinyNotify: typeof import('@opentiny/vue-notify')['default']
 }

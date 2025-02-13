@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import Inspect from 'vite-plugin-inspect'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import { TinyVueResolver } from '../dist/index.js'
+import { TinyVueSingleResolver } from '../dist/index.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,14 +11,14 @@ export default defineConfig({
     vue(),
     Inspect(),
     Components({
-      resolvers: [TinyVueResolver]
+      resolvers: [TinyVueSingleResolver]
     }),
     AutoImport({
-      resolvers: [TinyVueResolver]
+      resolvers: [TinyVueSingleResolver]
     })
   ],
   define: {
-    'process.env': { ...process.env, TINY_MODE: 'pc' }
+    'process.env': { TINY_MODE: 'pc' }
   },
   resolve: {
     extensions: ['.js', '.jsx', '.vue', '.ts']

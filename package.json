@@ -15,6 +15,7 @@
   },
   "scripts": {
     "dev": "pnpm run build --watch --ignore-watch example",
+    "start": "pnpm -F my-vue-app dev",
     "build": "rimraf dist && tsup src/index.ts --dts --format cjs,esm",
     "prepublishOnly": "pnpm build",
     "pub": "pnpm publish --no-git-checks --access=public",
