@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@opentiny/vue": "~3.21.0",
-    "@opentiny/vue-modal": "~3.21.0",
-    "@opentiny/vue-button": "~3.21.0",
-    "@opentiny/vue-loading": "~3.21.0",
-    "@opentiny/vue-notify": "~3.21.0",
     "@opentiny/vue-icon": "~3.21.0",
     "vue": "^3.3.9"
   },

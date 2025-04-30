@@ -10,6 +10,11 @@ declare module 'vue' {
     RouterLink: (typeof import('vue-router'))['RouterLink']
     RouterView: (typeof import('vue-router'))['RouterView']
     TinyButton: typeof import('@opentiny/vue-button')['default']
+    TinyIconAscending: typeof import('@opentiny/vue-icon')['iconAscending']
+    TinyIconClockWork: typeof import('@opentiny/vue-icon')['iconClockWork']
+    TinyIconDel: typeof import('@opentiny/vue-icon')['iconDel']
+    TinyIconShare: typeof import('@opentiny/vue-icon')['iconShare']
+    TinyIconWriting: typeof import('@opentiny/vue-icon')['iconWriting']
     TinyModal: typeof import('@opentiny/vue-modal')['default']
   }
 }

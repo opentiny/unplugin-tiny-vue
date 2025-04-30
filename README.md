@@ -1,17 +1,15 @@
 # unplugin-tiny-vue
 
-A auto import plugin. Same function as [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components).
-No import and component registration required.
+一个自动导入插件。与 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 功能相同。
+无需手动导入和注册组件。
 
-## Installation
+## 安装
 
 ```bash
-npm i @opentiny/unplugin-tiny-vue -D
-
-yarn i @opentiny/unplugin-tiny-vue -D
+npm i @opentiny/unplugin-tiny-vue unplugin-vue-components unplugin-auto-import -D
 ```
 
-## Usage
+## 使用方法
 
 ### 单组件按需引入(推荐用法，可以加快编译和构建速度)
 
@@ -60,7 +58,7 @@ module.exports = {
 
 #### 温馨提示
 
-因为 `pnpm` 工程的特点之一是：项目中显示引入的依赖需要提前在 `package.json` 中声明（防止幽灵依赖），所以在 `pnpm` 工程使用该插件时需要在 `package.json` 中声明项目用到的每一个 `TinyVue` 组件依赖（`TinyVue` 每个组件都是一个 `npm` 包）。依赖声明可以参考以下配置：
+由于 `pnpm` 工程的特点之一是：项目中显示引入的依赖需要提前在 `package.json` 中声明（防止幽灵依赖），所以在 `pnpm` 工程使用该插件时需要在 `package.json` 中声明项目用到的每一个 `TinyVue` 组件依赖（`TinyVue` 每个组件都是一个 `npm` 包）。依赖声明可以参考以下配置：
 
 ```json
 {
@@ -71,6 +69,13 @@ module.exports = {
     ...
   }
 }
+```
+
+或者，你也可以在项目根目录的 `.npmrc` 文件中添加以下配置来提升所有 TinyVue 相关的依赖：
+
+```ini
+# 提升所有@opentiny开头的包
+public-hoist-pattern[]=@opentiny/*
 ```
 
 ### 多组件按需引入(不推荐用法，从主入口引入无法treeShaking非js文件，比如：css、image文件等)
